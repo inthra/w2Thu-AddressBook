@@ -5,12 +5,14 @@ public class Contact {
   private String mLastName;
   private static ArrayList<Contact> instances = new ArrayList<Contact>();
   private int mId;
+  private ArrayList<Phone> mPhoneNumbers;
 
   public Contact(String firstName, String lastName) {
     mFirstName = firstName;
     mLastName = lastName;
     instances.add(this);
     mId = instances.size();
+    mPhoneNumbers = new ArrayList<Phone>();
   }
 
   public String getFirstName() {
@@ -39,5 +41,13 @@ public class Contact {
     } catch (IndexOutOfBoundsException exception) {
       return null;
     }
+  }
+
+  public ArrayList<Phone> getPhoneNumbers() {
+    return mPhoneNumbers;
+  }
+
+  public void addPhoneNumber(Phone number) {
+    mPhoneNumbers.add(number);
   }
 }
